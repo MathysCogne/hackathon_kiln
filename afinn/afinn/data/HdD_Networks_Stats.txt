@@ -1,0 +1,16 @@
+eth	4
+ethereum	4
+price	2
+number	2
+validators	2
+network	2
+gross	2
+apy	2
+supply	6
+staked	6
+estimated	4
+entry	3
+exit	3
+seconds	3
+withdrawal	2
+updated	2
