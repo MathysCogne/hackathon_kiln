@@ -5,7 +5,7 @@ const ChatHistory = ({ chatHistory, isLoading }) => {
     <div className="flex-1 overflow-y-auto space-y-12 p-6 pb-24">
       {chatHistory.map((chat, index) => (
         <div key={index} className="space-y-6 max-w-3xl mx-auto">
-          {/* Message utilisateur - affiché uniquement si ce n'est pas le message initial ET si le message n'est pas vide */}
+          {/*USER */}
           {chat.type !== 'initial' && chat.user && chat.user.trim() !== '' && (
             <div className="flex justify-end space-x-3">
               <div className="max-w-[80%]">
@@ -18,7 +18,7 @@ const ChatHistory = ({ chatHistory, isLoading }) => {
             </div>
           )}
 
-          {/* Réponse de l'IA */}
+          {/*IA */}
           <div className="space-y-2">
             <div className="flex items-center space-x-2 text-orange-500/70 text-xs uppercase tracking-wider pl-1">
               <img src="/logo_alone.svg" alt="Kiln Logo" className="w-4 h-4" />
@@ -31,9 +31,8 @@ const ChatHistory = ({ chatHistory, isLoading }) => {
         </div>
       ))}
       {isLoading && (
-        <div className="flex items-center space-x-2 text-orange-500/70">
-          <div className="w-1.5 h-1.5 rounded-full bg-orange-500/70 animate-pulse"></div>
-          <div className="text-sm">Generating response...</div>
+        <div className="flex justify-center w-full px-4">
+          <div className="animate-bounce text-2xl">🤔</div>
         </div>
       )}
     </div>

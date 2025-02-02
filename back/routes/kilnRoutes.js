@@ -1,20 +1,20 @@
 import { Router } from 'express';
 import axios from 'axios';
+import dotenv from 'dotenv';
 
 const router = Router();
 const KILN_API_BASE_URL = 'https://api.kiln.fi/v1';
-const KILN_API_TOKEN = "kiln_DBmNa8Y4Eu7O1ZCx9QMdTS4fQckBnWOEuwEqw9IM"; 
+const KILN_API_TOKEN = process.env.KILN_API_KEY;
 
-// Mappage des 'call' du script Python vers les endpoints Kiln
+// 'call' du script Python vers les endpoints
 const CALL_TO_ENDPOINT = {
   'ks': 'eth/kiln-stats',         // Kiln stats
   'ns': 'eth/network-stats',      // Network stats
   'rd': 'eth/rewards',            // Rewards
   'st': 'eth/stakes',             // Stakes
-  'ts': 'eth/transaction/status', // Transaction status
+  'ts': 'eth/transaction/status', // Transaction status thx 
 };
 
-// Liste des endpoints autorisés
 const ALLOWED_ENDPOINTS = new Set(Object.values(CALL_TO_ENDPOINT));
 
 /**
@@ -41,33 +41,30 @@ const fetchKilnData = async (endpoint, params = {}) => {
   }
 };
 
-/**
- * Route pour interroger Kiln en fonction des données du script Python
- */
+
 router.post('/kiln', async (req, res) => {
   try {
     const { call, start_date, end_date, addr } = req.body;
 
-    console.log('📝 Received request:', { call, start_date, end_date, addr }); // Debug log
+    console.log('📝 Received request:', { call, start_date, end_date, addr }); 
 
-    // ✅ Vérification des paramètres requis
-    if (!call || !addr) {
-      return res.status(400).json({ error: 'Missing required fields: call or addr' });
+
+    if (!call) {
+      return res.status(400).json({ error: 'Missing required fields: call' });
     }
 
     if ((call === 'rd' || call === 'ts') && (!start_date || !end_date)) {
       return res.status(400).json({ error: 'Missing required fields: start_date and end_date for rewards/transaction calls' });
     }
 
-    // ✅ Vérification de l'endpoint
+
     const endpoint = CALL_TO_ENDPOINT[call];
     if (!endpoint) {
       return res.status(400).json({ error: 'Invalid "call" value, cannot map to an endpoint' });
     }
 
-    console.log(`📡 Fetching Kiln API: ${endpoint}`); // Correct debug log
+    console.log(` Fetching Kiln API: ${endpoint}`); 
 
-    // ✅ Préparer dynamiquement les paramètres en fonction du type de requête
     const params = (() => {
       switch (call) {
         case 'rd': // Rewards
@@ -75,22 +72,20 @@ router.post('/kiln', async (req, res) => {
         case 'st': // Stakes
           return { wallets: addr };
         case 'ts': // Transaction Status
-          return { tx_hash: addr }; // Ici, 'addr' contient le tx_hash
+          return { tx_hash: "0x43244f90814b31dec250de24df5bb023a338790c1d5a39244cf1064cf6d98c94" }; // Ici, 'addr' contient le tx_hash
         default:
-          return {}; // Autres cas (comme 'ks' ou 'ns' sans paramètres spécifiques)
+          return {}; //  'ks'  'ns' call
       }
     })();
 
-    console.log(`📡 Fetching Kiln API: ${endpoint} with params`, params);
+    console.log(`Fetching Kiln API: ${endpoint} with params`, params);
 
-    // ✅ Récupération des données de Kiln
     const kilnData = await fetchKilnData(endpoint, params);
 
-    // ✅ Envoi de la réponse
     res.json(kilnData);
 
   } catch (error) {
-    console.error('❌ Error in /kiln route:', error.message);
+    console.error(' Error in /kiln route:', error.message);
     res.status(500).json({ error: error.message });
   }
 });

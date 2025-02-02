@@ -1,4 +1,3 @@
-// src/components/Chatbot.jsx
 
 import React, { useState } from 'react';
 import { askChatbot } from '../services/chatbotService';
@@ -9,9 +8,9 @@ import BlockchainBackground from './BlockchainBackground';
 const WELCOME_MESSAGE = {
   user: null,
   bot: <>
-    Hi there! I'm your AI assistant for blockchain and staking. 🚀<br/><br/>
-    I can help you explore real-time data from Kiln, provide insights on cryptocurrencies, and guide you through your blockchain projects.<br/><br/>
-    How can I assist you today?
+    Hi there ! 👋 <br/>I'm your AI assistant specialized in blockchain and staking 🚀<br/><br/>
+    Powered by Kiln’s API, I provide real-time insights on staking rewards, validator statuses, ETH network stats, and much more. Whether you want to track your portfolio, analyze trends, or optimize your staking strategy, I’ve got you covered. 🔍<br/><br/>
+    What would you like to explore today ?
   </>
 };
 

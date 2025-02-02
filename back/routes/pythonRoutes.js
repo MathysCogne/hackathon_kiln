@@ -2,7 +2,7 @@ import { Router } from 'express';
 import { spawn } from 'child_process';
 import path from 'path';
 
-// Obtenir le chemin absolu du répertoire actuel (remplace __dirname)
+
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
 const router = Router();
@@ -14,7 +14,7 @@ router.post('/execute-script', (req, res) => {
       return res.status(400).json({ error: 'Prompt is required' });
     }
 
-    // Résolution dynamique du chemin du script Python et de l'environnement virtuel
+
     const scriptPath = path.resolve(__dirname, '../scripts/better_call.py');
     const venvPythonPath = path.resolve(__dirname, '../scripts/venv/bin/python3'); // Interpréteur Python dans l'environnement virtuel
 
