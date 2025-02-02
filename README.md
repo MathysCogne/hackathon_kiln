@@ -20,6 +20,12 @@
 </div>
 
 
+## 🚀 Project Objective
+
+The goal is to offer an intelligent assistant capable of delivering precise insights into Ethereum staking, validator performance, and transactions, using Kiln's API. The AI agent acts as a bridge between users and the blockchain, making information more accessible and actionable.
+
+</br>
+
 # Slide presentation
 
 <img src="asset/cover_1.png" alt="Covers" width="550" />
@@ -29,10 +35,8 @@
 <img src="asset/cover_5.png" alt="Covers" width="550" />
 
 
-## 🚀 Project Objective
 
-The goal is to offer an intelligent assistant capable of delivering precise insights into Ethereum staking, validator performance, and transactions, using Kiln's API. The AI agent acts as a bridge between users and the blockchain, making information more accessible and actionable.
-
+</br>
 
 ## 📡 Integration with Kiln
 
@@ -46,7 +50,7 @@ The AI uses Kiln's API to retrieve real-time data and provide accurate responses
 - `Get_Kiln_Stats`: Kiln-specific activity data on Ethereum
 - `Get_Transaction_Status`: Status of an Ethereum transaction
 
-
+</br>
 
 ## 🔮 Future Enhancements
 
@@ -54,6 +58,7 @@ The AI uses Kiln's API to retrieve real-time data and provide accurate responses
 - 📡 **Extended Kiln API Support**: Adding new requests for broader information coverage
 - 🤖 **AI Model Improvement**: Refining responses and offering deeper analytical insights
 
+</br>
 
 ## 🙏 Acknowledgments
 
