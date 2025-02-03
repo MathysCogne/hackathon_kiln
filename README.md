@@ -5,7 +5,9 @@
 
 <strong>Hackathon - Kiln 🐧</strong>
 
-<p>This project was developed as part of a hackathon organized by Kiln, emphasizing innovation and accessibility in staking and blockchain technology 🏆</p>
+<p>2nd Place WINNERS of the Kiln Connect category! 🏆</p>
+
+<p>This project was developed as a solution for a hackathon organized by Kiln, focusing on innovation and data accessibility in staking and blockchain technology 🏆</p>
 
 </br>
 
@@ -22,7 +24,7 @@
 
 ## 🚀 Project Objective
 
-The goal is to offer an intelligent assistant capable of delivering precise insights into Ethereum staking, validator performance, and transactions, using Kiln's API. The AI agent acts as a bridge between users and the blockchain, making information more accessible and actionable.
+The goal is to provide an AI-powered assistant that both educates on blockchain concepts and can help advanced users quickly retrieve precise, real-time data using Kiln's API. Acting as a bridge to the blockchain, the AI makes information more accessible, and actionable.
 
 </br>
 
@@ -37,12 +39,17 @@ The goal is to offer an intelligent assistant capable of delivering precise insi
 
 
 </br>
+## 🔎 Sentiment analysis
+
+The first step is to have the user's prompt go through a simple sentiment analysis using a python script, allowing it to narrow down which data is necessary and from there make the right API call to retrieve it. In a fully fledged version, a more thorough sentiment analysis and allowing it to understand actionable words to enable it to make actions (such as handling: transactions, withdrawing, staking on behalf of the user).
+
 
 ## 📡 Integration with Kiln
 
-The aim of this project was to demonstrate a functional proof of concept. For a real-world integration, all Kiln API endpoints should be integrated to maximize the chatbot's capabilities.
+The aim of this project was to demonstrate a functional proof of concept, for this we decided to limit the data received through Kiln's API to what we thought would be necessary for a MVP. 
+For a fully operational version, all Kiln API endpoints should be integrated to maximize the chatbot's capabilities.
 
-The AI uses Kiln's API to retrieve real-time data and provide accurate responses. Currently supported endpoints:
+The AI is fed real-time data from Kiln's API to provide accurate responses. Currently supported endpoints:
 
 - `Get_Stakes`: Information on validators and associated wallets
 - `Get_Reward`: Reward details for a given wallet or validator
@@ -52,14 +59,14 @@ The AI uses Kiln's API to retrieve real-time data and provide accurate responses
 
 </br>
 
-## 🔮 Future Enhancements
+## 🔮 Future Improvements
 
 - 🛠 **Blockchain Actions**: Integration of Kiln's UI widget for direct user actions
-- 📡 **Extended Kiln API Support**: Adding new requests for broader information coverage
-- 🤖 **AI Model Improvement**: Refining responses and offering deeper analytical insights
+- 📡 **Extended Kiln API Support**: Add new API endpoints for broader information coverage
+- 🤖 **AI Model Enhancement**: Use a blockchain-trained LLM model locally, to improve response quality, privacy and compliance
 
 </br>
 
 ## 🙏 Acknowledgments
 
-Special thanks to Kiln for organizing the hackathon !
+Special thanks to Kiln for organizing the hackathon!
