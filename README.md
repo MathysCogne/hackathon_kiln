@@ -41,7 +41,7 @@ The goal is to provide an AI-powered assistant that both educates on blockchain 
 </br>
 
 ## 🔎 Sentiment analysis
-The first step is to have the user's prompt go through a simple sentiment analysis using a python script, allowing it to narrow down which data is necessary and from there make the right API call to retrieve it. In a fully fledged version, a more thorough sentiment analysis using ([Afinn](https://github.com/fnielsen/afinn)) and allowing it to understand actionable words to enable it to make actions (such as handling: transactions, withdrawing, staking on behalf of the user).
+The first step is to have the user's prompt go through a simple sentiment analysis using a python script, allowing it to narrow down which data is necessary and from there make the right API call to retrieve it. In a fully fledged version, a more thorough sentiment analysis using modified [Afinn](https://github.com/fnielsen/afinn) and allowing it to understand actionable words to enable it to make actions (such as handling: transactions, withdrawing, staking on behalf of the user).
 
 </br>
 
